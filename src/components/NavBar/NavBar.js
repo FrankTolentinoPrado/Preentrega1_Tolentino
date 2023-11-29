@@ -1,37 +1,19 @@
 import CartWidget from "../CartWidget/CartWidget"
+import {NavLink, Link} from "react-router-dom"
+
 const NavBar = () => {
     return(
         <header className="header">
-            <div className="logo">FLEXVYNE WEB</div>
+            <Link to="/">
+            <h3 className="logo">FLEXVYNE</h3>
+            </Link>
                 <input type="checkbox" id="nav_check" hidden />
-                <nav className="contenedor_hamburguesa">
-                    <ul>
-                        <li>
-                            <a href="#" className="active">
-                            Inicio
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">Productos</a>
-                        </li>
-                        <li>
-                            <a href="#">Nosotros</a>
-                        </li>
-                        <li>
-                            <a href="#">Servicios</a>
-                        </li>
-                        <li>
-                            <a className="boton_login" href="#">
-                            Login
-                            </a>
-                        </li>
-                    </ul>
-              </nav>
-              <label htmlFor="nav_check" className="hamburger">
-                <div></div>
-                <div></div>
-                <div></div>
-              </label>
+                <div className="Categorias">
+                    <NavLink to={"/category/Funko"} className={({isActive}) => isActive ? "ActiveOption": "Option"} />
+                    <NavLink to={"/category/Ropa"} className={({isActive}) => isActive ? "ActiveOption": "Option"} />
+                    <NavLink to={"/category/Peluches"} className={({isActive}) => isActive ? "ActiveOption": "Option"} />
+                    <NavLink to={"/category/Coleccionables"} className={({isActive}) => isActive ? "ActiveOption": "Option"} />
+                </div>
         <CartWidget />
         </header>
     )
